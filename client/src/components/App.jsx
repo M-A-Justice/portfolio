@@ -1,10 +1,6 @@
 import { useState, cloneElement } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-// import {
-//   Grid,
-// } from '@mui/material';
-
 import {
   AppBody,
   AppMain,
@@ -36,8 +32,17 @@ const App = () => {
   ];
 
   const handlePageChange = (e) => {
-    console.log(e);
+    const { deltaY } = e;
 
+    if (deltaY > 0) {
+      // down
+      if (page < pages.length - 1) {
+        setPage(page + 1);
+      }
+    } else if (page > 0) {
+      // up
+      setPage(page - 1);
+    }
     // determine if a mobile event, wheel event, or pc drag event
   };
 
@@ -49,14 +54,11 @@ const App = () => {
     if (touchY === 0) {
       setTouchY(pageY);
     } else {
-      // determine if up or down swipe
       if (touchY > pageY) {
-        // down swipe
         if (page < pages.length - 1) {
           setPage(page + 1);
         }
       } else if (page > 0) {
-        // up swipe
         setPage(page - 1);
       }
       setTouchY(0);
@@ -88,7 +90,9 @@ const App = () => {
           </AppMain>
           <AppSide container item xs={1} alignItems="center" justifyContent="center">
             <Stepper
-              page={page}
+              currentPage={page}
+              pages={pages}
+              setPage={setPage}
             />
           </AppSide>
         </>,
