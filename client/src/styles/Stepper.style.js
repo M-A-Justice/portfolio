@@ -18,4 +18,5 @@ export const PawPrint = styled('img')`
     ? 'invert(35%) sepia(8%) saturate(1410%) hue-rotate(323deg) brightness(95%) contrast(85%);'
     : 'invert(95%) sepia(12%) saturate(476%) hue-rotate(38deg) brightness(113%) contrast(94%);')}
   height: 35px;
+  ${(props) => (props.currentPage === props.id ? '' : 'cursor: pointer;')}
 `;

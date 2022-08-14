@@ -8,6 +8,7 @@ import {
 } from '../styles/App.style';
 
 import Stepper from './Stepper';
+import TitleLayout from './TitleLayout';
 import Saria from './Saria';
 import About from './About';
 import Projects from './Projects';
@@ -26,24 +27,21 @@ const App = () => {
 
   const pages = [
     <Saria />,
-    <About />,
-    <Projects />,
-    <Contact />,
+    <TitleLayout title="About" component={About} />,
+    <TitleLayout title="Projects" component={Projects} />,
+    <TitleLayout title="Contact" component={Contact} />,
   ];
 
   const handlePageChange = (e) => {
     const { deltaY } = e;
 
     if (deltaY > 0) {
-      // down
       if (page < pages.length - 1) {
         setPage(page + 1);
       }
     } else if (page > 0) {
-      // up
       setPage(page - 1);
     }
-    // determine if a mobile event, wheel event, or pc drag event
   };
 
   const handleSwipe = (e) => {
@@ -83,12 +81,12 @@ const App = () => {
         <AppBody />,
         dynamicProps,
         <>
-          <AppMain container item xs={11} alignItems="center" justifyContent="center">
+          <AppMain container item lg={11} md={10.5} alignItems="center" justifyContent="center">
             {
               pages[page]
             }
           </AppMain>
-          <AppSide container item xs={1} alignItems="center" justifyContent="center">
+          <AppSide container item lg={1} md={1.5} alignItems="center" justifyContent="center">
             <Stepper
               currentPage={page}
               pages={pages}
