@@ -74,6 +74,8 @@ const App = () => {
       dynamicProps.onTouchEnd = handleSwipe;
     } else {
       dynamicProps.onWheel = handlePageChange;
+      dynamicProps.onTouchStart = handleSwipe;
+      dynamicProps.onTouchEnd = handleSwipe;
     }
 
     return (

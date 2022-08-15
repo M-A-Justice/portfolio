@@ -1,4 +1,7 @@
 import { styled } from '@mui/material/styles';
+import {
+  Popover,
+} from '@mui/material';
 
 // update to be 50% width and 10px gap at desktop/laptop sizes
 export const StepGroup = styled('div')`
@@ -19,4 +22,8 @@ export const PawPrint = styled('img')`
     : 'invert(95%) sepia(12%) saturate(476%) hue-rotate(38deg) brightness(113%) contrast(94%);')}
   height: 35px;
   ${(props) => (props.currentPage === props.id ? '' : 'cursor: pointer;')}
+`;
+
+export const PawHelp = styled(Popover)`
+  padding: 15px;
 `;

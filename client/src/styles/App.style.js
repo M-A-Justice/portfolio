@@ -9,10 +9,11 @@ export const AppBody = styled(Grid)`
 `;
 
 export const AppMain = styled(Grid)`
-  width: 100%;
+  width: 85%;
 `;
 
 export const AppSide = styled(Grid)`
+  width: 15%;
 `;
 
 export default AppBody;
