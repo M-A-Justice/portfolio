@@ -1,9 +1,13 @@
 import { styled } from '@mui/material/styles';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
-const LayoutBody = styled(Grid)`
+import Font from '../assets/Chewy-Regular.ttf';
+
+export const LayoutBody = styled(Grid)`
   height: 80%;
   margin: 0 0 0 5%;
 `;
 
-export default LayoutBody;
+export const PageTitle = styled(Typography)`
+  color: #BF4342;
+`;

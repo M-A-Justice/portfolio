@@ -1,9 +1,11 @@
 import { useMediaQuery } from 'react-responsive';
 import {
   Grid,
-  Typography,
 } from '@mui/material';
-import LayoutBody from '../../styles/TitleLayout.style';
+import {
+  LayoutBody,
+  PageTitle,
+} from '../../styles/TitleLayout.style';
 
 const TitleLayout = ({ component: Component, title }) => {
   const isTabletOrMobile = useMediaQuery({
@@ -13,9 +15,9 @@ const TitleLayout = ({ component: Component, title }) => {
   return (
     <LayoutBody container direction="column">
       <Grid container item xs={2} justifyContent="center" alignItems="center">
-        <Typography variant={isTabletOrMobile ? 'h4' : 'h3'}>
+        <PageTitle variant={isTabletOrMobile ? 'h4' : 'h3'}>
           {title}
-        </Typography>
+        </PageTitle>
       </Grid>
       <Grid container item xs={10} justifyContent="center">
         <Component />
