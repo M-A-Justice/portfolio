@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import {
   Typography,
   Popover,
@@ -19,19 +20,22 @@ const titles = [
 
 const Step = ({ index, currentPage, setPage }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const isTabletOrMobile = useMediaQuery({
+    query: '(max-width: 1224px)',
+  });
 
   const handleClick = () => {
     setPage(index);
   };
 
   const handleMouseEnter = (e) => {
-    if (e.target.id !== currentPage) {
+    if (!isTabletOrMobile && e.target.id !== currentPage) {
       setAnchorEl(e.currentTarget);
     }
   };
 
   const handleMouseLeave = (e) => {
-    if (e.target.id !== currentPage) {
+    if (!isTabletOrMobile && e.target.id !== currentPage) {
       setAnchorEl(null);
     }
   };
