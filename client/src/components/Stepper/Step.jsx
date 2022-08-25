@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import {
   Typography,
-  Popover,
 } from '@mui/material';
 import paw from '../../assets/paw-print.png';
 import {
   PawPrint,
   PawRow,
-  // PawHelp,
+  PawHelp,
 } from '../../styles/Stepper.style';
 
 const titles = [
@@ -56,7 +55,7 @@ const Step = ({ index, currentPage, setPage }) => {
           onMouseLeave={handleMouseLeave}
         />
       </PawRow>
-      <Popover
+      <PawHelp
         id="paw-hover-helper"
         open={open}
         anchorEl={anchorEl}
@@ -76,7 +75,7 @@ const Step = ({ index, currentPage, setPage }) => {
         <Typography>
           {titles[index]}
         </Typography>
-      </Popover>
+      </PawHelp>
     </>
   );
 };

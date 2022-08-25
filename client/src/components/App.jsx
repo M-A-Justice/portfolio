@@ -83,7 +83,7 @@ const App = () => {
         <AppBody />,
         dynamicProps,
         <>
-          <AppMain container item lg={11} md={10.5} alignItems="center" justifyContent="center">
+          <AppMain container item lg={11} md={10.5}>
             {
               pages[page]
             }
