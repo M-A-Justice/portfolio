@@ -11,7 +11,13 @@ import {
   NoseImage,
 } from '../../../styles/Saria.style';
 
-const Nose = ({ imgSrc, headRef }) => {
+const Nose = ({
+  imgSrc,
+  headRef,
+  rotation,
+  handleMouseDown,
+  handleMouseUp,
+}) => {
   const ref = useRef(null);
 
   const [height, setHeight] = useState(0);
@@ -21,10 +27,6 @@ const Nose = ({ imgSrc, headRef }) => {
     height: window.innerHeight,
     width: window.innerWidth,
   });
-
-  const handleClick = (e) => {
-    console.log('clicking nose');
-  };
 
   const handleResize = () => {
     setDimensions({
@@ -40,19 +42,17 @@ const Nose = ({ imgSrc, headRef }) => {
   useEffect(() => {
     const { offsetWidth, offsetHeight } = headRef.current;
 
+    console.log(offsetWidth, offsetHeight, offsetWidth / offsetHeight);
+
     setHeight(offsetHeight);
     setWidth(offsetWidth);
   }, [dimensions]);
 
-  // return (
-  //   <NoseImage ref={canvasRef} onClick={handleClick} onMouseMove={handleMouseMove} />
-  // );
-
   return (
-    <NoseContainer width={width} height={height}>
+    <NoseContainer width={width} height={height} rotation={rotation}>
       <NoseImage src={imgSrc} ref={ref} width={width} height={height} />
       <ClickableNoseContainer width={width} height={height}>
-        <ClickableNose onClick={handleClick} />
+        <ClickableNose onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} />
       </ClickableNoseContainer>
     </NoseContainer>
   );
